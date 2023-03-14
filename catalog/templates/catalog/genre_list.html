@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block content %} {% if user.is_staff %}
+<a href=" {% url 'genre-create' %} " class="btn btn-primary">Create genre</a>
+{% else %}
+<a href=" {% url 'genre-create' %} " class="btn btn-primary disabled"
+  >Create genre</a
+>
+{% endif %}
+<h1>All genres</h1>
+{% if genre_list %}
+<ul>
+  {% for genre in genre_list %}
+  <li><a href=" {{genre.get_absolute_url}} ">{{genre.name}}</a></li>
+  {% endfor %}
+</ul>
+{% endif %} {% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block content %}
+{% if user.is_staff %}
+<a href=" {% url 'language-update' language.pk %} " class="btn btn-secondary"
+  >Update language</a
+>
+<a href=" {% url 'language-delete' language.pk %} " class="btn btn-danger"
+  >Delete language</a
+>
+{% else %}
+<a href=" {% url 'language-update' language.pk %} " class="btn btn-secondary disabled"
+  >Update language</a
+>
+<a href=" {% url 'language-delete' language.pk %} " class="btn btn-danger disabled"
+  >Delete language</a
+>
+{% endif %}
+<h1>Language: {{language}}</h1>
+
+<h4>Books</h4>
+<!--{% if language %}-->
+<ul>
+  {% for book in language.book_set.all %}
+  <li><a href="{{ book.get_absolute_url }}">{{book}}</a> {{book.author}}</li>
+  {% empty %}
+  <li class="text-info">There are no books in this language</li>
+  {% endfor %}
+</ul>
+<!--{% endif %} -->
+
+{% endblock content %}

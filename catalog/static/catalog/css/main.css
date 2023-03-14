@@ -1,0 +1,19 @@
+.sidebar-nav {
+    margin-top: 40px;
+    padding: 0;
+    list-style: none;
+    color: white;
+    
+    }
+
+body {
+    background: #221818;
+    color: whitesmoke;
+}
+
+.header {
+    color: whitesmoke;
+    background: #1a1717;
+    margin-left: 20px;
+}
+

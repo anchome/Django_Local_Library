@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block content %}
+
+{% if user.is_staff %}
+<a href=" {% url 'genre-update' genre.pk %} " class="btn btn-secondary"
+  >Update genre</a
+>
+<a href=" {% url 'genre-delete' genre.pk %} " class="btn btn-danger"
+  >Delete genre</a
+>
+{% else %}
+<a href=" {% url 'genre-update' genre.pk %} " class="btn btn-secondary disabled"
+  >Update genre</a
+>
+<a href=" {% url 'genre-delete' genre.pk %} " class="btn btn-danger disabled"
+  >Delete genre</a
+>
+{% endif %}
+<h1>Geners: {{genre}}</h1>
+
+<h4>Books</h4>
+
+<ul>
+  {% for book in genre.book_set.all %}
+  <li><a href="{{ book.get_absolute_url }}">{{book}}</a> {{book.author}}</li>
+  {% empty %}
+  <p class="text-info">There are no books in this genre</p>
+  {% endfor %}
+</ul>
+{% endblock content %}

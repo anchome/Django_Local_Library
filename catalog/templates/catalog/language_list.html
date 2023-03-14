@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block content %} {% if user.is_staff %}
+<a href=" {% url 'language-create' %} " class="btn btn-primary"
+  >Create language</a
+>
+{% else %}
+<a href=" {% url 'language-create' %} " class="btn btn-primary disabled"
+  >Create language</a
+>
+{% endif %}
+<h1>All lenguages</h1>
+{% if language_list %}
+
+<ul>
+  {% for language in language_list %}
+  <li><a href=" {{language.get_absolute_url}} ">{{language.name}}</a></li>
+  {% endfor %}
+</ul>
+
+{% endif %} {% endblock content %}
