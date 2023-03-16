@@ -22,18 +22,18 @@ from django.conf import settings
 # Use static() para añadir mapeo url para servir archivos estáticos durante el desarrollo (sólo)
 from django.conf.urls.static import static
 
-#from catalog import views
+# from catalog import views
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', RedirectView.as_view(url='/catalog/', permanent=True)),
+    path('admin/', admin.site.urls)
 ]
 
 urlpatterns += [
     path('catalog/', include('catalog.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-       
+    path('', RedirectView.as_view(url='/catalog/', permanent=True)),
+
 ]
 
 

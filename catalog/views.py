@@ -99,7 +99,7 @@ class LanguageListView(generic.ListView):
 class LanguageDetailView(generic.DetailView):
     model = Language
     
-
+# listarLibrosPrestadosUsuario
 class LoanedBooksByUserListView(LoginRequiredMixin, generic.ListView):
     '''Vista genérica basada en clases que enumera los libros prestados al usuario actual.'''
     model = BookInstance
@@ -159,7 +159,6 @@ def renew_book_librarian(request, pk):
         'bookinstance': book_instance}
 
     return render(request, 'catalog/book_renew_librarian.html', context )
-
 
 
 class AuthorCreate(PermissionRequiredMixin, CreateView):
