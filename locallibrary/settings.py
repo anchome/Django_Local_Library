@@ -46,7 +46,8 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
+        'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.RemoteUserMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -73,6 +74,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'locallibrary.wsgi.application'
 
+# AUTHENTICATION_BACKENDS = [
+#     'django.contrib.auth.backends.RemoteUserBackend',
+# ]
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
