@@ -49,10 +49,12 @@
             <li>User: {{ user.get_username }}</li>
             <li><a href="{% url 'my-borrowed' %}">My Borrowed</a></li>
             <li>
-              <a href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+              {% comment %} <a href="{% url 'logout'%}?next={{request.path}}">Logout</a> {% endcomment %}
+              <a href="{% url 'logout'%}">Logout</a>
             </li>
             {% else %}
-            <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+            {% comment %} <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li> {% endcomment %}
+            <li><a href="{% url 'login'%}">Login</a></li>
             {% endif %}
           </ul>
 
