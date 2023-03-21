@@ -1,0 +1,15 @@
+    <!--Login usuario -->
+          <ul >
+            {% if user.is_authenticated %}
+
+            <li>User: {{ user.get_username }}</li>
+            <li><a href="{% url 'index' %}">Enter</a></li>
+            <li>
+              {% comment %} <a href="{% url 'logout'%}?next={{request.path}}">Logout</a> {% endcomment %}
+              <a href="{% url 'logout'%}">Logout</a>
+            </li>
+            {% else %}
+            {% comment %} <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li> {% endcomment %}
+            <li><a href="{% url 'login'%}">Login</a></li>
+            {% endif %}
+          </ul>

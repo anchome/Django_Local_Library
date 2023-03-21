@@ -21,6 +21,7 @@ from django.views.generic import RedirectView
 from django.conf import settings
 # Use static() para añadir mapeo url para servir archivos estáticos durante el desarrollo (sólo)
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 
 # from catalog import views
 
@@ -30,6 +31,7 @@ urlpatterns = [
 ]
 
 urlpatterns += [
+    #path('', auth_views.LoginView.as_view(), name="login"),
     path('catalog/', include('catalog.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('', RedirectView.as_view(url='/catalog/', permanent=True)),
